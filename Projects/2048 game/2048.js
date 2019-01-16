@@ -53,10 +53,6 @@ function drawCell(cell) {
   }
 }
 
-function canvasClean() {
-  ctx.clearRect(0, 0, 500, 500);
-}
-
 document.onkeydown = function (event) {
   if (!loss) {
     if (event.keyCode === 38 || event.keyCode === 87) {
