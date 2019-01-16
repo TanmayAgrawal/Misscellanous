@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+	.clock{
+		text-align: center;
+		width: auto;
+		height: auto;
+		font-family: Monotype Corsiva;
+		font-size: 500%;
+		position: absolute;
+		top: 45%;
+		left: 35%;
+
+	}
+	</style>
+	<script type="text/javascript" >
+		var d,h,m,s,animate;
+		function init(){
+			d=new Date();
+			h=d.getHours();
+			m=d.getMinutes();
+			s=d.getSeconds();
+			clock();
+		};
+
+		function clock() {
+			s++;
+			if(s==60){
+				s=0;
+				m++;
+				if(m==60){
+					m=0;
+			    	h++;
+					if(h==24){
+						h=0;
+					}
+				}	    
+
+			}
+			$('sec',s);
+			$('min',m);
+			$('hr',h);
+			animate=setTimeout(clock,1000);
+		};
+
+		function $(id,val){
+			if(val<10){
+				val='0'+val;
+			}
+			document.getElementById(id).innerHTML=val;
+		};
+
+		window.onload=init;
+		
+	</script>
+</head>
+<body>
+	<div class="clock">
+		<span id="hr">00</span>
+		<span> : </span>
+		<span id="min">00</span>
+		<span> : </span>
+		<span id="sec">00</span>
+	</div>	
+</body>
+</html>
