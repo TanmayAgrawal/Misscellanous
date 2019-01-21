@@ -121,10 +121,18 @@
         }
         function remove(remove){
             remove.parentNode.parentNode.removeChild(remove.parentNode);
-            localStorage.removeItem('list');
+            var item = remove.parentElement;
+            console.log(item);
+            var ele =  item.children[0];
+            console.log(ele);
+            var toremove = ele.innerHTML;
+            inputitem = inputitem.filter((value) =>{return value!== toremove});
+            localStorage.setItem('list', JSON.stringify(inputitem));
         }
         function removeall() {
             window.localStorage.clear();
+            inputitem = [];
+            cont.innerHTML = '';
         }
        
     </script>
